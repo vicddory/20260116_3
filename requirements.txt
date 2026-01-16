@@ -1,6 +1,5 @@
 streamlit
-matplotlib.pyplot
+pandas
+matplotlib
 seaborn
 pybaseball
-statcast_pitcher
-matplotlib.pyplot
