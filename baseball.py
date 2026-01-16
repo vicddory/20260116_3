@@ -38,6 +38,32 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pybaseball import statcast_pitcher
+import matplotlib.font_manager as fm
+import os
+
+font_path = os.path.join(os.getcwd(), "NanumGothic.ttf")
+
+import matplotlib.font_manager as fm
+import os
+
+# 1. 폰트 파일의 경로 지정 (같은 폴더에 있다고 가정)
+# 리눅스 환경에서도 경로를 잘 찾도록 os 모듈 사용
+font_path = os.path.join(os.getcwd(), "NanumGothic.ttf")
+
+# 2. 폰트 파일이 실제로 있는지 확인 (디버깅용)
+if os.path.exists(font_path):
+    # 3. Matplotlib에 폰트 추가
+    fm.fontManager.addfont(font_path)
+    
+    # 4. 폰트 설정 (폰트 파일의 내부 이름을 가져와서 설정)
+    font_name = fm.FontProperties(fname=font_path).get_name()
+    plt.rc('font', family=font_name)
+else:
+    st.error("폰트 파일을 찾을 수 없습니다. GitHub에 NanumGothic.ttf가 올라갔는지 확인하세요.")
+
+# 5. 마이너스 기호(-) 깨짐 방지
+plt.rc('axes', unicode_minus=False)
+
 
 # 1. 제목 설정
 st.title("⚾ Greg Maddux 투구 분석 (2008)")
