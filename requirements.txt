@@ -3,3 +3,4 @@ matplotlib.pyplot
 seaborn
 pybaseball
 statcast_pitcher
+matplotlib.pyplot
